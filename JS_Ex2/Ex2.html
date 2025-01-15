@@ -6,15 +6,17 @@
     <title>Document</title>
     <script>
         function cambiar() {
-            let h1 = document.getElementsByTagName("h1")[0];
-            let h3 = document.getElementsByTagName("h3")[0];
-            h1.innerHTML = "Texto cambiado 1";
-            h3.innerHTML = "Texto cambiado 2";
-            h1.style.color = "red";
-            h3.style.color = "blue";
-            h1.style.fontSize = "24px";
-            h3.style.fontSize = "18px";
-            
+            let check = confirm("Are you sure you want to changue the text?");
+            if(check) {
+                let h1 = document.getElementsByTagName("h1")[0];
+                let h3 = document.getElementsByTagName("h3")[0];
+                h1.innerHTML = "Texto cambiado 1";
+                h3.innerHTML = "Texto cambiado 2";
+                h1.style.color = "red";
+                h3.style.color = "blue";
+                h1.style.fontSize = "24px";
+                h3.style.fontSize = "18px";
+            }
         }
         window.onload = function(){
             let boton = document.getElementsByTagName("button")[0];
