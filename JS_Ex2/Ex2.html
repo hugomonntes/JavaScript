@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function cambiar() {
+            let h1 = document.getElementsByTagName("h1")[0];
+            let h3 = document.getElementsByTagName("h3")[0];
+            h1.innerHTML = "Texto cambiado 1";
+            h3.innerHTML = "Texto cambiado 2";
+            h1.style.color = "red";
+            h3.style.color = "blue";
+            h1.style.fontSize = "24px";
+            h3.style.fontSize = "18px";
+            
+        }
+        window.onload = function(){
+            let boton = document.getElementsByTagName("button")[0];
+        };
+    </script>
+</head>
+<body>
+    <h1>First Text</h1>
+    <h3>Second Text</h3>
+    <button onclick="cambiar()">Cambiar</button>
+</body>
+</html>
