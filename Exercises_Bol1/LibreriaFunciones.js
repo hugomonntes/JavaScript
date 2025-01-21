@@ -62,3 +62,11 @@ function isMultiplo(){
 }
 
 //Ejercicio 7
+function precioEntrada(){
+    let edad = parseInt(prompt("Introduce tu edad:"));
+    if(edad >= 8){
+        window.alert("Gratis");
+    } else if (edad >= 9 && edad <= 16){
+        window.alert("Precio: $5.00");
+    }
+}
