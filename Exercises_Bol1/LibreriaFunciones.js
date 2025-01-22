@@ -68,5 +68,43 @@ function precioEntrada(){
         window.alert("Gratis");
     } else if (edad >= 9 && edad <= 16){
         window.alert("Precio: $5.00");
+    } else if (edad >= 17 && edad <= 25){
+        window.alert("Precio: $7.50");
+    } else if (edad >= 26 && edad <= 55){
+        window.alert("Precio: $10.00");
+    } else if (edad >= 56 && edad <= 65){
+        window.alert("Precio: $5.00");
+    } else {
+        window.alert("Precio: $0.00");
     }
+}
+
+//Ejercicio 8
+function precioMascota(){
+    let tipoMascota = prompt("Introduce el tipo de mascota (hurón, perro, gato, loro):");
+    let precio;
+
+    switch(tipoMascota.toLowerCase()){ //Pongo tolowercase() para hacer filtro si el user pone alguna letra en mayuscula
+        case "hurón":
+            precio = 1;
+            break;
+        case "perro":
+            precio = 1.5;
+            break;
+        case "gato":
+            precio = 1;
+            break;
+        case "loro":
+            precio = 2;
+            break;
+        default:
+            window.alert("Mascota no permitida.");
+    }
+    window.alert(`El precio de viajar con ${tipoMascota} es ${precio}€.`);
+}
+
+//Ejercicio 9
+function premioBingo(){
+    let premio = 0.05
+    let edad = parseInt(prompt("Introduce tu edad:"));
 }
