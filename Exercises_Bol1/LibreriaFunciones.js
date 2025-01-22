@@ -172,9 +172,9 @@ function fibonacci(){
     let numero1 = 0;
     let numero2 = 1;
     let suma = 0;
-    let fin = 10000;
+    let limiteFinal = 10000;
     window.alert(`Serie de Fibonacci: ${numero1}, ${numero2}`);
-    while(suma < fin){
+    while(suma < limiteFinal){
         let siguienteNumero = numero1 + numero2;
         numero1 = numero2;
         numero2 = siguienteNumero;
