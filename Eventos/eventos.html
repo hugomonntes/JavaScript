@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function changue(objeto){
+            objeto.style.textDecoration = 'none';
+            objeto.href = '##';
+            objeto.setAttribute("href", "##");
+        }
+
+        function changueTitles(){
+            if(this.innerHTML == "Header 1"){
+                this.innerHTML = "1";
+            } else if (this.innerHTML == "Header 2"){
+                this.innerHTML = "2";
+            } else if (this.innerHTML == "Header 3"){
+                this.innerHTML = "3";
+            }
+        }
+
+        // Gestor de eventos semánticos
+        window.onload = function() {
+            let titulo = document.getElementsByTagName("h3");
+            for (let i = 0; i < titulo.length; i++) {
+                titulo[i].onclick = changueTitles2();
+            }
+        };
+    </script>
+</head>
+<body>
+    <a href="#" onclick="changue(this)">Link 1</a>
+    <h3>Header 1</h3>
+    <h3>Header 2</h3>
+    <h3>Header 3</h3>
+</body>
+</html>

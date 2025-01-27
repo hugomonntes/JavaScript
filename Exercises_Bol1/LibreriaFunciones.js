@@ -178,6 +178,6 @@ function fibonacci(){
         let siguienteNumero = numero1 + numero2;
         numero1 = numero2;
         numero2 = siguienteNumero;
-        suma = numero1 + numero2;
+        suma = numero1 + numero2;   
     }
 }
