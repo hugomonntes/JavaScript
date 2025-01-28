@@ -15,7 +15,7 @@ function sumarNumeros(){
 function calcularAreaCirculo(){
     let radio = parseFloat(prompt("Introduce el radio del círculo en cm²:"));
     let area = Math.PI * Math.pow(radio, 2);
-    window.alert(`El área del círculo es ${area.toFixed(2)} cm.`);
+    window.alert(`El área del círculo es ${area.toFixed(2)} cm<sup>2</sup>.`);
 }
 
 //Ejercicio 4
@@ -30,10 +30,10 @@ function isPar(){
 
 //Ejercicio 5
 function generarNumeroAleatorio(){
-    let numeroAleatorio = Math.ceil(Math.random*5);
+    let numeroAleatorio = Math.ceil(Math.random()*5);
     switch(numeroAleatorio){
         case 1:
-            window.alert("El número es uno.");
+            window.alert("<h1>El número es uno.");
             break;
         case 2:
             window.alert("El número es dos.");
@@ -129,7 +129,7 @@ function calcularFactorial(){
 }
 
 //Ejercicio 11
-function sumarNumeros(){
+function sumarNumeros2(){
     let maximoNumeros = parseInt(prompt("Introduce cuantos números vas a introducir:"));
     let acumulador = 0;
     for (let i = 0; i < maximoNumeros; i++) {
@@ -143,9 +143,9 @@ function sumarNumeros(){
 function almacenarViajes(){
     let paisesVisitar = [];
     do {
-        let pais = prompt("Introduce un país al que quieras visitar (o escribe 'fin' para terminar):");
+        var pais = prompt("Introduce un país al que quieras visitar (o escribe 'fin' para terminar):");
         paisesVisitar.push(pais);
-    } while (pais.toLowerCase() != 'fin');
+    } while (pais.toLowerCase() != "fin");
     window.alert(`Has visitado ${paisesVisitar.length} países.`);
     window.alert(`Los países que has visitado son: ${paisesVisitar.join(', ')}`);
 }
@@ -155,11 +155,11 @@ function listaNombres(){
     let listaNombres = [];
     let listaNombresMismaLetraInicial = [];
     do {
-        let nombre = prompt("Introduce un nombre (o escribe 'fin' para terminar):");
+        var nombre = prompt("Introduce un nombre (o escribe 'fin' para terminar):");
         listaNombres.push(nombre.toLowerCase());
     } while(nombre.toLowerCase()!= 'fin');
     let letraInicio = prompt("Introduce una letra inicial por la que quieres la coincidencia:");
-    for(let i = 0; i < nombres.length; i++){
+    for(let i = 0; i < nombre.length; i++){
         if(listaNombres.startsWith(letraInicio.toLowerCase())){
             listaNombresMismaLetraInicial.push(listaNombres[i]);
         }
@@ -173,11 +173,13 @@ function fibonacci(){
     let numero2 = 1;
     let suma = 0;
     let limiteFinal = 10000;
-    window.alert(`Fibonacci: ${numero1}, ${numero2}`);
     while(suma < limiteFinal){
         let siguienteNumero = numero1 + numero2;
         numero1 = numero2;
         numero2 = siguienteNumero;
-        suma = numero1 + numero2;   
+        suma = numero1 + numero2;
+        if(suma < limiteFinal){
+            document.write(suma + "<br>");
+        }
     }
 }
