@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a{
+            cursor: pointer;
+            color: red;
+        }
+    </style>
+    <script>
+        function hideText(){
+            var text = document.getElementsByTagName("p");
+            var links = document.getElementsByTagName('a');
+            text[0].style.display = "none";
+            if(text[0].style.display == "none"){
+                links[0].innerHTML = "Show Text";
+            }
+        }
+        function showText(){
+            var text = document.getElementsByTagName("p");
+            var links = document.getElementsByTagName('a');
+            text[0].style.display = "block";
+            if(text[0].style.display == "block"){
+                links[0].innerHTML = "Hide Text";
+            }
+        }
+        window.onload = function(){
+            var links = document.getElementsByTagName('a');
+            links[0].addEventListener("click", () => {
+                for (let i = 0; i < links.length; i++) {
+                    if(links[i].innerHTML == "Hide Text"){
+                        links[i].onclick = hideText;
+                    } else {
+                        links[i].onclick = showText;
+                    }
+                }
+            }, false)
+        }
+    </script>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem deleniti facilis porro perferendis magni veritatis ipsum non iste earum distinctio laborum, odit asperiores explicabo, maxime, natus labore enim repudiandae fuga.</p>
+    <a>Hide Text</a>
+
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem deleniti facilis porro perferendis magni veritatis ipsum non iste earum distinctio laborum, odit asperiores explicabo, maxime, natus labore enim repudiandae fuga.</p>
+    <a>Hide Text</a>
+    
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem deleniti facilis porro perferendis magni veritatis ipsum non iste earum distinctio laborum, odit asperiores explicabo, maxime, natus labore enim repudiandae fuga.</p>
+    <a>Hide Text</a>
+</body>
+</html>

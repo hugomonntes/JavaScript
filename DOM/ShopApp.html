@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function addElements(){
+            var list = document.getElementById("list");
+            var product = prompt("What product do you want to add?");
+            var text = document.createTextNode(product);
+            var element = document.createElement("li");
+            element.appendChild(text);
+            list.appendChild(element);
+        }
+        function removeElements(){
+            var elementList = document.getElementsByTagName('li');
+            var product = prompt("What product do you want remove?");
+            for (let i = 0; i < elementList.length; i++) {
+                if(elementList[i].innerHTML == product){
+                    // elementList[i].remove(i);
+                    elementList[i].style.textDecoration = "line-trough";
+                    elementList[i].style.color = "red";
+                }
+            }
+        }
+        window.onload = function(){
+            //Gestión de eventos + llamadas a funciones
+            var botones = document.getElementsByTagName('button');
+            botones[0].onclick = addElements;
+            botones[1].addEventListener("dblclick", removeElements, false);
+        }
+    </script>
+</head>
+<body>
+    <h1>Shopping List</h1>
+    <ol id="list"></ol>
+    <button>Add</button>
+    <button>Remove</button>
+</body>
+</html>
