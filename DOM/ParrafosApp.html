@@ -29,15 +29,15 @@
         }
         window.onload = function(){
             var links = document.getElementsByTagName('a');
-            links[0].addEventListener("click", () => {
-                for (let i = 0; i < links.length; i++) {
-                    if(links[i].innerHTML == "Hide Text"){
-                        links[i].onclick = hideText;
-                    } else {
-                        links[i].onclick = showText;
+                links[i].addEventListener("click", () => {
+                    for (let i = 0; i < links.length; i++) {
+                        if(links[i].innerHTML == "Hide Text"){
+                            links[i].onclick = hideText;
+                        } else {
+                            links[i].onclick = showText;
+                        }
                     }
-                }
-            }, false)
+                }, false)
         }
     </script>
 </head>
