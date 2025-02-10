@@ -19,6 +19,15 @@
             var calcularAnchoPantalla = window.innerWidth;
             var calcularHeightPantalla = window.innerHeight;
             info.innerHTML = "Ancho: " + calcularAnchoPantalla + " Alto: " + calcularHeightPantalla;
+            if(evento.clientX > calcularAnchoPantalla / 2 && evento.clientY < calcularHeightPantalla / 2){
+                body.style.backgroundColor = "red";
+            } else if(evento.clientX > calcularAnchoPantalla / 2 && evento.clientY < calcularHeightPantalla / 2){
+                body.style.backgroundColor = "yellow";
+            } else if(evento.clientX > calcularAnchoPantalla / 2 && evento.clientY < calcularHeightPantalla / 2){
+                body.style.backgroundColor = "green";
+            } else {
+                body.style.backgroundColor = "pink";
+            }
         }
         window.onload = function(){
             // document.onmousemove = pantalla;
