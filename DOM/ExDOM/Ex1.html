@@ -19,11 +19,16 @@
             var penultimo = enlaces[enlaces.length - 2];
             return penultimo;
         }
+
+        function enlacesConPrueba(enlaces){
+            var enlaces = this;
+            var penultimo = enlaces[enlaces.length - 2];
+            return penultimo;
+        }
         
         window.onload = function (){
             var enlaces = document.getElementsByTagName("a");
-            window.alert(contadorEnlaces());
-            window.alert(penultimoEnlace());
+            
         }
     </script>
 </head>
