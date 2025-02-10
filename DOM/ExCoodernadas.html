@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // function pantalla(evento){
+        //     var info = document.getElementById("info");
+        //     info.innerHTML = "La cordenada x es: " + evento.clientX + " y la coordenada y es: " + evento.clientY;
+        // }
+        // function teclado(evento){
+        //     var info = document.getElementById("info");
+        //     info.innerHTML = "La tecla pulsada es: " + String.fromCharCode(evento.which) + " y el ascii asociado es: " + evento.which;
+        // }
+        function coodernadas(evento){
+            var body = document.getElementsByTagName("body")[0];
+            var info = document.getElementById("info");
+            var calcularAnchoPantalla = window.innerWidth;
+            var calcularHeightPantalla = window.innerHeight;
+            info.innerHTML = "Ancho: " + calcularAnchoPantalla + " Alto: " + calcularHeightPantalla;
+        }
+        window.onload = function(){
+            // document.onmousemove = pantalla;
+            // document.onkeypress = teclado;
+            document.onclick = coodernadas;
+        }
+    </script>
+</head>
+<body>
+    <div id="info"></div>
+</body>
+</html>
