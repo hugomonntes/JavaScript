@@ -21,14 +21,15 @@
         }
 
         function enlacesConPrueba(enlaces){
-            var enlaces = this;
-            var penultimo = enlaces[enlaces.length - 2];
-            return penultimo;
+            var enlaces = this['href'];
+            if(enlaces == 'http://prueba'){
+                window.alert("Hola");
+            }
         }
         
         window.onload = function (){
             var enlaces = document.getElementsByTagName("a");
-            
+            enlacesConPrueba(enlaces);
         }
     </script>
 </head>
