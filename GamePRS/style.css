@@ -1,0 +1,50 @@
+/* *{
+    box-sizing: border-box;
+    background-color: black;
+    margin: 0;
+    font-family:monospace;
+    font-weight: bold;
+}
+
+header{
+    width: 100%;
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: wheat;
+}
+
+.buttonPlay{
+    width: 200px;
+    height: 50px;
+    background-color: limegreen;
+    border-radius: 50px;
+    font-size: 30px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin: 50px;
+}
+
+.buttonPlay:hover{
+    box-shadow: 0px 0px 20px limegreen;
+    transition: all 1s;
+}
+
+.buttonManual{
+    width: 200px;
+    height: 50px;
+    background-color: red;
+    border-radius: 50px;
+    font-size: 30px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin: 50px;
+}
+
+.buttonManual:hover{
+    box-shadow: 0px 0px 20px red;
+    transition: all 1s;
+} */

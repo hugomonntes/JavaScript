@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra, Papel, Tijeras</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    *{
+    box-sizing: border-box;
+    margin: 0;
+    font-family:monospace;
+    font-weight: bold;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f5f5f5;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: #333;
+        color: #fff;
+        border-bottom: 1px solid #ccc;
+    }
+
+    main {
+        width: 600px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    #scorePlayer1, #scorePlayer2, #result {
+        margin-bottom: 10px;
+    }
+    #choices button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    #choices button:hover {
+        background-color: #57e1e6;
+    }
+    #choices{
+        margin-right: 10px;
+    }
+    #result {
+        color: #4caf50;
+    }
+    #buttonRestart {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #ff9800;
+    }
+</style>
+<script>
+    let playerScore = 0;
+    let cpuScore = 0;
+
+    const choices = ['rock', 'paper','scissors'];
+    
+    function turnoCPU(){
+        const cpuChoice = choices[Math.floor(Math.random() * choices.length)];
+        document.getElementById('cpuChoice').textContent = `CPU: ${cpuChoice}`;
+        return cpuChoice;
+    }
+
+    function calcularResultado(playerChoice, cpuChoice){
+        if(playerChoice === cpuChoice){
+            return 'Empate';
+        }
+
+        if((playerChoice === 'rock' && cpuChoice ==='scissors') ||
+            (playerChoice === 'paper' && cpuChoice === 'rock') ||
+            (playerChoice ==='scissors' && cpuChoice === 'paper')){
+            return 'Ganador';
+        }
+
+        return 'Perdedor';
+    }
+
+    function turnoPlayer(){
+        const playerChoice = document.querySelector('button.active').textContent.toLowerCase();
+        document.getElementById('playerChoice').textContent = `Jugador: ${playerChoice}`;
+
+        const cpuChoice = turnoCPU();
+        const result = calcularResultado(playerChoice, cpuChoice);
+        document.getElementById('result').textContent = result;
+
+        if(result.includes('empate'));
+
+        if(result.includes('ganador')){
+            playerScore++;
+            document.getElementById('scorePlayer').textContent = `Nombre Jugador: ${playerScore}`;
+        } else {
+            cpuScore++;
+            document.getElementById('scoreCPU').textContent = `CPU: ${cpuScore}`;
+        }
+    }
+</script>
+<body>
+    <header>
+        <button class="buttonPlay">Play</button>
+        <button class="buttonManual">Manual</button>
+    </header>
+    <main>
+        <div class="game">
+            <p id="scorePlayer">Nombre Jugador: 0</p>
+            <p id="scoreCPU">CPU: 0</p>
+            <div id="choices">
+                <button class="rock">Piedra</button>
+                <button class="paper">Papel</button>
+                <button class="scissors">Tijeras</button>
+            </div>
+            <p id="result"></p>
+            <button class="buttonRestart">Reiniciar</button>
+        </div>
+    </main>
+</body>
+</html>
