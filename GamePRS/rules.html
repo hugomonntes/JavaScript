@@ -3,154 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rules - Rock Paper Scissors</title>
+    <link rel="stylesheet" href="rules.css">
 </head>
-<script>
-    const choices = ['rock', 'paper','scissors'];
-    let playerScore = 0;
-    let computerScore = 0;
-
-    function getRandomChoice() {
-        return choices[Math.floor(Math.random() * choices.length)];
-    }
-
-    function updateScore(winner) {
-        if (winner === 'player') {
-            playerScore++;
-        } else if (winner === 'computer') {
-            computerScore++;
-        }
-        document.getElementById('playerScore').textContent = playerScore;
-        document.getElementById('computerScore').textContent = computerScore;
-    }
-
-    function playRound(playerChoice) {
-        const computerChoice = getRandomChoice();
-        const winner = getWinner(playerChoice, computerChoice);
-
-        document.getElementById('result').textContent = `Player chose ${playerChoice}, computer chose ${computerChoice}. ${winner} wins!`;
-        updateScore(winner);
-    }
-
-    function getWinner(playerChoice, computerChoice) {
-        if (playerChoice === computerChoice) {
-            return 'tie';
-        } else if ((playerChoice === 'rock' && computerChoice ==='scissors') ||
-                    (playerChoice === 'paper' && computerChoice === 'rock') ||
-                    (playerChoice ==='scissors' && computerChoice === 'paper')) {
-            return 'player';
-        } else {
-            return 'computer';
-        }
-    }
-
-    function resetGame() {
-        playerScore = 0;
-        computerScore = 0;
-        document.getElementById('playerScore').textContent = playerScore;
-        document.getElementById('computerScore').textContent = computerScore;
-        document.getElementById('result').textContent = '';
-    }
-</script>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-    }
-
-    header {
-        background-color: #f8f9fa;
-        padding: 10px;
-        text-align: center;
-    }
-
-    main {
-        max-width: 400px;
-        margin: 0 auto;
-        padding: 20px;
-    }
-
-    h1 {
-        margin-bottom: 20px;
-    }
-
-    form {
-        margin-bottom: 20px;
-    }
-
-    label {
-        display: block;
-        margin-bottom: 5px;
-    }
-
-    select {
-        padding: 5px;
-        width: 100%;
-    }
-
-    button {
-        padding: 10px;
-        margin-top: 10px;
-        width: 100%;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        cursor: pointer;
-        font-weight: bold;
-        transition: background-color 0.3s ease;
-        &:hover {
-            background-color: #45a049;
-        }
-        &:disabled {
-            background-color: #cccccc;
-            cursor: not-allowed;
-        }
-    }
-    #resetButton {
-        margin-top: 20px;
-    }
-    #result {
-        margin-bottom: 20px;
-        font-weight: bold;
-    }
-    #score {
-        margin-bottom: 20px;
-    }
-    #playerScore, #computerScore {
-        font-weight: bold;
-    }
-</style>
 <body>
-    <header>
-        <h1>Paper, Rock, Scissors</h1>
-    </header>
-    <main>
-        <h1>Welcome to the Rules of game Paper, Rock, Scissors</h1>
-        <form id="gameForm">
-            <label for="playerChoice">Choose your move:</label>
-            <select id="playerChoice" name="playerChoice">
-                <option value="rock">Rock</option>
-                <option value="paper">Paper</option>
-                <option value="scissors">Scissors</option>
-            </select>
-            <button type="submit">Play!</button>
-            <div id="result"></div>
-            <div id="resetButton">
-                <button onclick="resetGame()">Reset Game</button>
-            </div>
-        </form>
-        <h2>Score:</h2>
-        <p>Player Score: <span id="playerScore">0</span></p>
-        <p>Computer Score: <span id="computerScore">0</span></p>
-        <script>
-            document.getElementById('gameForm').addEventListener('submit', function(event) {
-                event.preventDefault();
-                const playerChoice = document.getElementById('playerChoice').value;
-                playRound(playerChoice);
-            });
-            resetGame();
-        </script>
-    </main>
+    <div class="rules-container">
+        <h1>Game Rules</h1>
+        <ul>
+            <li><b>Rock</b> wins <b>Scissors</b></li>
+            <li><b>Scissors</b> wins <b>Paper</b></li>
+            <li><b>Paper</b> wins <b>Rock</b></li>
+        </ul>
+        <p>Best of 5 rounds. First to win 3 times wins the game!</p>
+        <a href="index.html" class="back-button">Back to Game</a>
+    </div>
 </body>
 </html>
