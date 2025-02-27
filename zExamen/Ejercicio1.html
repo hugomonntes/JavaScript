@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function añadirElementos() {
+            let newProduct = document.createElement("li");
+            newProduct.innerHTML = prompt("Añade un producto")
+            this.nextElementSibling.appendChild(newProduct);
+            
+        }
+
+        function borrar() {
+            var contenido = prompt("Que elemento quieres borrar¿?");
+            var elementos = document.getElementsByTagName("li");
+            for (let i = 0; i < elementos.length; i++) {
+                if (elementos[i].innerHTML === contenido) {
+                    elementos[i].style.textDecoration = "line-through";
+                }
+            }
+        }
+
+        window.onload = function () {
+            var encabezados = document.getElementsByTagName("h3");
+            for (let i = 0; i < encabezados.length; i++) {
+                encabezados[i].onclick = añadirElementos;
+            }
+            var boton = document.getElementById("borrar");
+            boton.onclick = borrar;
+        }
+    </script>
+
+<body>
+    <h1>Mi lista</h1>
+    <h3>Alimentacion</h3>
+    <ol id="alimentacion"></ol>
+    <h3>Hogar</h3>
+    <ol id="hogar"></ol>
+    <h3>Higiene</h3>
+    <ol id="higiene"></ol>
+
+    <button id="borrar">Tachar elemento</button>
+</body>
+
+</html>
