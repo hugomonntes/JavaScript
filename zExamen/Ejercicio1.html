@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+    function coordenadas(evento) {
+        let anchoPantalla = window.innerWidth;
+        let altoPantalla = window.innerHeight;
+        if (
+        evento.clientX < (anchoPantalla / 2 && altoPantalla / 2) &&
+        evento.clientY < (anchoPantalla / 2 && altoPantalla / 2)
+        ) {
+        document.body.style.backgroundColor = "red";
+        } else if (
+        evento.clientX < (anchoPantalla && altoPantalla / 2) &&
+        evento.clientY < (anchoPantalla / 2 && altoPantalla)
+        ) {
+        document.body.style.backgroundColor = "yellow";
+        } else if (
+        evento.clientX < (anchoPantalla / 2 && altoPantalla) &&
+        evento.clientY < (anchoPantalla && altoPantalla / 2)
+        ) {
+        document.body.style.backgroundColor = "green";
+        } else {
+            document.body.style.backgroundColor = "blue";
+        }
+    }
+    window.onload = function () {
+        document.onclick = coordenadas;
+    };
+    </script>
+</head>
+<body></body>
+</html>
