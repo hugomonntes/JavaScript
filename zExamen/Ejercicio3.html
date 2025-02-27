@@ -16,21 +16,9 @@
             info.innerHTML = "La tecla pulsada es: " + String.fromCharCode(evento.which) + " y el ascii asociado es: " + evento.which;
         }
 
-        function fondo(evento){
-            if (evento.clientX > 0 && evento.clientX < 957 && evento.clientY > 0 && evento.clientY < 475) {
-                body.style.backgroundColor ="red";
-            } else if (evento.clientX > 957 && evento.clientX < 1919 && evento.clientY > 0 && evento.clientY < 475) {
-                body.style.backgroundColor ="green";
-            } else if (evento.clientX > 0 && evento.clientX < 957 && evento.clientY > 475 && evento.clientY < 950) {
-                body.style.backgroundColor ="yellow";
-            } else if (evento.clientX > 957 && evento.clientX < 1919 && evento.clientY > 475 && evento.clientY < 950) {
-                body.style.backgroundColor ="blue";
-            }
-        }
         window.onload = function () {
             document.onmousemove = pantalla;
             document.onkeypress = teclado;
-            document.onclick = fondo;
         }
     </script>
 </head>
