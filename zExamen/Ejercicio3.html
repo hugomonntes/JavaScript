@@ -16,6 +16,23 @@
             infoTeclado.innerHTML = "La tecla pulsada es: " + String.fromCharCode(evento.which) + " y el ascii asociado es: " + evento.which;
         }
 
+        addEventListener("click", (evento) => {
+            let anchoPantalla = window.innerWidth;
+            let altoPantalla = window.innerHeight;
+            if (evento.clientX < anchoPantalla / 2 && evento.clientY < altoPantalla / 2){
+                body.style.backgroundColor ="red";
+            }  
+            else if (evento.clientX > anchoPantalla / 2 && evento.clientY < altoPantalla / 2){
+                body.style.backgroundColor ="yellow";
+            } 
+            else if (evento.clientX < anchoPantalla / 2 && evento.clientY > altoPantalla / 2){
+                body.style.backgroundColor ="green";
+            } 
+            else {
+                body.style.backgroundColor ="blue";
+            } 
+        })
+        
         window.onload = function () {
             document.onmousemove = pantalla;
             document.onkeypress = teclado;
