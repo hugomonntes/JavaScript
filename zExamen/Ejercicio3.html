@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event object</title>
+    <title></title>
     <script>
         function pantalla(evento) {
             var info = document.getElementById("info");
@@ -12,8 +12,8 @@
         }
         
         function teclado(evento) {
-            var info = document.getElementById("info");
-            info.innerHTML = "La tecla pulsada es: " + String.fromCharCode(evento.which) + " y el ascii asociado es: " + evento.which;
+            var infoTeclado = document.getElementById("infoTeclado");
+            infoTeclado.innerHTML = "La tecla pulsada es: " + String.fromCharCode(evento.which) + " y el ascii asociado es: " + evento.which;
         }
 
         window.onload = function () {
@@ -25,6 +25,7 @@
 
 <body id="body">
     <div id="info"></div>
+    <div id="infoTeclado"></div>
 </body>
 
 </html>
