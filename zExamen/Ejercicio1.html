@@ -27,10 +27,52 @@
             document.body.style.backgroundColor = "blue";
         }
     }
+
+    function cambiarColorBotones(){
+        var botones = document.getElementsByName("button");
+        for (let i = 0; i < botones.length; i++) {
+            if(botones[i].style.color = "red"){
+                botones[i].innerHTML = "Cancelar";
+                botones[i].style.width = "400px";
+                botones[i].style.height = "300px";
+            }
+        }
+    }
+
+    function añadirLista(){
+        var lista = document.getElementById("lista");
+        var elementoLista = prompt("Introduce el elemento a añadir en la lista: ");
+        lista.appendChild(`<li>${elementoLista}</li>`);
+    }
+
     window.onload = function () {
-        document.onclick = coordenadas;
+        // var titulos = document.getElementsByName("h1");
+        // for (let i = 0; i < titulos.length; i++) {
+        //     // titulos[i].onmousemove = coordenadas;
+        //     // titulos[i].onmousemove.innerHTML = "Hola";
+        //     if(titulos[i].innerHTML = "Carlos"){
+        //         titulos[i].style.color = "red";
+        //     }
+        // }
+        // document.onclick = coordenadas;
+        // var titulos = document.getElementsByTagName("h1");
+        // titulos[titulos.length - 1].ondblclick = cambiarColorBotones;
+        var botones = document.getElementsByTagName("button");
+        botones[botones.length - 2].onclick = añadirLista;
+        if(botones.innerHTML = "Ejecutame"){
+            botones.onclick = añadirLista;
+        }
     };
     </script>
 </head>
-<body></body>
+<body>
+    <h1>Carlos</h1>
+    <h1 ondblclick="cambiarColorBotones()"></h1>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button>Ejecutame</button>
+    <button></button>
+    <ol id="lista"></ol>
+</body>
 </html>
