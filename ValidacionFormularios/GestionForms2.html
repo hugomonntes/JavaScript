@@ -5,6 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
+        function mostrar(){
+            let divInfo = document.getElementById("info");
+            divInfo.innerHTML = "";
+            let nombre = document.getElementsByName("nombre")[0].value;
+            divInfo.innerHTML += "Nombre: " + nombre + "<br>";
+            let apellidos = document.getElementsByName("apellido")[0].value;
+            divInfo.innerHTML += "Apellido: " + apellidos + "<br>";
+            let edad = document.getElementsByName("edad")[0].value;
+            divInfo.innerHTML += "Edad: " + edad + "<br>";
+            let correo = document.getElementsByName("correo")[0].value;
+            divInfo.innerHTML += "Correo: " + correo + "<br>";
+            let pass = document.getElementsByName("pass")[0].value;
+            divInfo.innerHTML += "Password: " + pass + "<br>";
+            let genero = document.getElementsByName("genero");
+            for (let i = 0; i < genero.length; i++) {
+                if (genero[i].checked){
+                    divInfo += genero[i].value;
+                }
+            }
+        }
         window.onload = function(){
             let boton = document.querySelector("[type=\"button\"]");
             boton.addEventListener("click", mostrar);
@@ -36,6 +56,17 @@
         <b>Futbol <input type="checkbox" name="futbol[]" id="futbol" value="Futbol"></b><br>
         <b>Correr <input type="checkbox" name="correr[]" id="correr" value="Correr"></b><br>
         <b>Bailar <input type="checkbox" name="bailar[]" id="bailar" value="Bailar"></b>
+        <hr>
+        <h2>Idiomas</h2>
+        <select name="idiomas" id="idiomas">
+            <option value="inglés">Inglés</option>
+            <option value="español">Español</option>
+            <option value="alemán">Alemán</option>
+            <option value="italiani">Italiani</option>
+        </select>
+        <hr>
+        <h2>Comentarios</h2>
+        <textarea style="resize: none;" name="comentarios" id="comentarios" cols="40" rows="10" placeholder="Escribe aquí sus comentarios..."></textarea>
         <br><br>
         <input value="Send" type="button" name="enviar" id="enviar">
         <!-- El input tipo submit envía los datos a la URL del atributo action -->
