@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            let boton = document.querySelector("[type=\"button\"]");
+            boton.addEventListener("click", mostrar);
+            // boton.onclick = mostrar;
+        }
+    </script>
+</head>
+<body>
+    <form action="#" method="post">
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre">
+        <br>
+        <input type="text" id="apellido" name="apellido" placeholder="Apellidos">
+        <br>
+        <input name="edad" id="edad" type="number" placeholder="Edad">
+        <br>
+        <input type="email" name="correo" id="correo" placeholder="Correo Electrónico">
+        <br>
+        <input type="password" name="pass" id="pass" placeholder="Password">
+        <br>
+        <h2>Genero</h2>
+        <span>
+            <b>Hombre <input type="radio" name="genero" value="Hombre" id="genero"></b><br>
+            <b>Mujer <input type="radio" name="genero" value="Mujer" id="genero"></b><br>
+            <b>Otro <input type="radio" name="genero" value="Otro" id="genero"></b>
+        </span>
+        <hr>
+        <h2>Hobbies</h2>
+        <b>Leer <input type="checkbox" name="leer[]" id="leer" value="Leer"></b><br>
+        <b>Futbol <input type="checkbox" name="futbol[]" id="futbol" value="Futbol"></b><br>
+        <b>Correr <input type="checkbox" name="correr[]" id="correr" value="Correr"></b><br>
+        <b>Bailar <input type="checkbox" name="bailar[]" id="bailar" value="Bailar"></b>
+        <br><br>
+        <input value="Send" type="button" name="enviar" id="enviar">
+        <!-- El input tipo submit envía los datos a la URL del atributo action -->
+    </form>
+    <hr>
+    <h3>Username Data</h3>
+    <div id="info">
+        
+    </div>
+</body>
+</html>

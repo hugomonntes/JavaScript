@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms Management</title>
+    <script>
+        function mostrar(){
+            // Vamos a hacer uso de los array forms y elemetns
+            let varInfo = document.getElementById("info");
+            varInfo.innerHTML = "";
+            let formulario = document.forms[0]; //0 por la psicion del primer formn
+            let elementosFormulario = formulario.elements; //Localizas todos los elementos del form
+            for (let i = 0; i < elementosFormulario.length; i++) {
+                if(elementosFormulario[i].type == "button"){
+                    continue;
+                } else {
+                    varInfo.innerHTML += elementosFormulario[i].value + "<br>";
+                }
+            }
+        }
+        window.onload = function(){
+            let boton = document.querySelector("[type=\"button\"]");
+            boton.addEventListener("click", mostrar);
+            // boton.onclick = mostrar;
+        }
+    </script>
+</head>
+<body>
+    <form action="#" method="post">
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre">
+        <br>
+        <input type="text" id="apellido" name="apellido" placeholder="Apellidos">
+        <br>
+        <input name="edad" id="edad" type="number" placeholder="Edad">
+        <br>
+        <input type="email" name="correo" id="correo" placeholder="Correo Electrónico">
+        <br>
+        <input type="password" name="pass" id="pass" placeholder="Password">
+        <br><br>
+        <input value="Send" type="button" name="enviar" id="enviar">
+        <!-- El input tipo submit envía los datos a la URL del atributo action -->
+    </form>
+    <hr>
+    <div id="info">
+        
+    </div>
+</body>
+</html>
