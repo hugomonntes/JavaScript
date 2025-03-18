@@ -19,11 +19,27 @@
             let pass = document.getElementsByName("pass")[0].value;
             divInfo.innerHTML += "Password: " + pass + "<br>";
             let genero = document.getElementsByName("genero");
+            divInfo.innerHTML+= "<strong>Género:</strong>"+"<br>";
             for (let i = 0; i < genero.length; i++) {
                 if (genero[i].checked){
-                    divInfo += genero[i].value;
+                    divInfo += genero[i].value + "<br>";
                 }
             }
+            divInfo.innerHTML+= "<strong>Hobbies:</strong>"+"<br>";
+            let hobbies = document.getElementsByName("hobbies[]");
+            for (let i = 0; i < hobbies.length; i++) {
+                if (hobbies[i].checked){
+                    divInfo += hobbies[i].value + "<br>";
+                }
+            }
+            divInfo.innerHTML+= "<strong>Idiomas:</strong>"+"<br>";
+            let idiomas = document.getElementsByName("idiomas")[0];
+            let idioma = idiomas.options[idiomas.selectedIndex].value;
+            divInfo += idioma + "<br>";
+
+            divInfo.innerHTML+= "<strong>Comentarios:</strong>"+"<br>";
+            let comentarios = document.getElementsByClassName("comentarios")[0].value;
+            divInfo.innerHTML += comentarios;
         }
         window.onload = function(){
             let boton = document.querySelector("[type=\"button\"]");
@@ -52,10 +68,10 @@
         </span>
         <hr>
         <h2>Hobbies</h2>
-        <b>Leer <input type="checkbox" name="leer[]" id="leer" value="Leer"></b><br>
-        <b>Futbol <input type="checkbox" name="futbol[]" id="futbol" value="Futbol"></b><br>
-        <b>Correr <input type="checkbox" name="correr[]" id="correr" value="Correr"></b><br>
-        <b>Bailar <input type="checkbox" name="bailar[]" id="bailar" value="Bailar"></b>
+        <b>Leer <input type="checkbox" name="hobbies[]" id="leer" value="Leer"></b><br>
+        <b>Futbol <input type="checkbox" name="hobbies[]" id="futbol" value="Futbol"></b><br>
+        <b>Correr <input type="checkbox" name="hobbies[]" id="correr" value="Correr"></b><br>
+        <b>Bailar <input type="checkbox" name="hobbies[]" id="bailar" value="Bailar"></b>
         <hr>
         <h2>Idiomas</h2>
         <select name="idiomas" id="idiomas">
