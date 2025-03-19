@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <main>
-
+    <div class="mnDiv">
+        <div class="div1">
+        <form action="post">
+            <select name="pictures" id="pictures">
+            <option value="Cylindre">Cylindre</option>
+            <option value="Cube">Cube</option>
+            <option value="Cone">Cone</option>
+            <option value="Sphere">Sphere</option>
+            <option value="Rectangular">Rectangular</option>
+            </select>
+        </form>
+        </div>
+        <div class="div2">
+        <script
+            type="module"
+            src="https://unpkg.com/@splinetool/viewer@1.9.79/build/spline-viewer.js"
+        ></script>
+        <spline-viewer
+            url="https://prod.spline.design/9Vi2GmRwXbQP1MCy/scene.splinecode"
+        id="3d"></spline-viewer>
+        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.79/build/spline-viewer.js"></script>
+        <spline-viewer url="https://prod.spline.design/GjNFmePIuG2y1vML/scene.splinecode"></spline-viewer>
+        </div>
+    </div>
+    <button onclick="cambiarURL()">AAA</button>
     </main>
+    <script src="script.js"></script>
 </body>
 </html>
