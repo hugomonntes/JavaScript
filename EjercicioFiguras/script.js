@@ -48,4 +48,44 @@ desplegable.addEventListener("click", () => {
         <input readonly type="text" id="resultado" name="resultado" >
         `;
     }
-});
+}
+)
+boton.addEventListener("click", calcularAreaCylindre);
+function calcularAreaCylindre(){
+    let valorFiguraRadio = document.getElementById("radio").value;
+    let valorFiguraAltura = document.getElementById("altura").value;
+    let valorResultado = document.getElementById("resultado");
+    valorResultado.value = (Math.PI * valorFiguraAltura * Math.pow(valorFiguraRadio, 2)).toFixed(2);
+    console.log(valorResultado);
+}
+boton.addEventListener("click", calcularAreaCubo);
+function calcularAreaCubo(){
+    let lado = document.getElementById("lado").value;
+    let valorResultado = document.getElementById("resultado");
+    valorResultado.value = (lado * lado).toFixed(2);
+    console.log(valorResultado);
+}
+boton.addEventListener("click", calcularAreaCone);
+function calcularAreaCone(){
+    let valorFiguraRadio = document.getElementById("radio").value;
+    let valorFiguraAltura = document.getElementById("altura").value;
+    let valorResultado = document.getElementById("resultado");
+    valorResultado.value = ((1/3)*Math.PI* valorFiguraAltura * Math.pow(valorFiguraRadio, 2)).toFixed(2);
+    console.log(valorResultado);
+}
+boton.addEventListener("click", calcularAreaSphere);
+function calcularAreaSphere(){
+    let valorFiguraRadio = document.getElementById("radio").value;
+    let valorFiguraAltura = document.getElementById("altura").value;
+    let valorResultado = document.getElementById("resultado");
+    valorResultado.value = (Math.PI * valorFiguraAltura * Math.pow(valorFiguraRadio, 2)).toFixed(2);
+    console.log(valorResultado);
+}
+boton.addEventListener("click", calcularAreaCylindre);
+function calcularAreaCylindre(){
+    let valorFiguraRadio = document.getElementById("radio").value;
+    let valorFiguraAltura = document.getElementById("altura").value;
+    let valorResultado = document.getElementById("resultado");
+    valorResultado.value = (Math.PI * valorFiguraAltura * Math.pow(valorFiguraRadio, 2)).toFixed(2);
+    console.log(valorResultado);
+}
