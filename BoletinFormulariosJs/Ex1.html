@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+    }
+    textarea {
+        resize: none;
+    }
+    label {
+        margin-bottom: 5px;
+        margin-top: 10px;
+    }
+</style>
+<script>
+    let formulario = document.getElementsByName("form")[0];
+    let nombre = document.getElementById("nombre");
+    let telefono = document.getElementById("telf")
+    if(nombre.value == ""){
+        console.log("Error");
+    }
+</script>
+<body>
+    <form action="" method="post">
+        <label for="">Nombre: </label>
+        <input type="text" id="nombre" placeholder="Escribe tu nombre">
+        <label for="">Teléfono: </label>
+        <input type="number" id="telf" placeholder="Escribe tu telefono" maxlength="9">
+        <label for="">Asunto: </label>
+        <select name="" id="">
+            <option value="info">Solicitar información</option>
+            <option value="queja">Poner una queja</option>
+            <option value="coments">Otros comentarios</option>
+        </select>
+        <label for="">Escribe un mesaje: </label>
+        <textarea name="" id=""></textarea>
+    </form>
+</body>
+</html>
+
+<!-- Dado el siguiente formulario JavaScript haz que cuando el usuario seleccione una opción del select,
+el valor de la opción se muestre en el textarea. Los valores posibles del select son:
+- Solicitar información
+- Poner una queja
+- Otroscomments
+Es necesario comprobar antes del envío que ningún campo, (Nombre, teléfono, ni opción
+seleccionada), pueden estar vacíos. -->

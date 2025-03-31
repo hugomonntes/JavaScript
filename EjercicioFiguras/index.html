@@ -190,7 +190,7 @@
                     valorResultado.value = "Datos inválidos";
                 } else {
                     let volumen = Math.PI * Math.pow(radio, 2) * altura;
-                    valorResultado.value = volumen.toFixed(2);
+                    valorResultado.value = volumen.toFixed(2) + " cm³";
                 }
             } else if(opcionDesplegable == "Cube") {
                 let lado = parseFloat(document.getElementById("lado").value);
@@ -198,7 +198,7 @@
                     valorResultado.value = "Datos inválidos";
                 } else {
                     let volumen = Math.pow(lado, 3);
-                    valorResultado.value = volumen.toFixed(2);
+                    valorResultado.value = volumen.toFixed(2) + " cm³";
                 }
             } else if(opcionDesplegable == "Cone") {
                 let radio = parseFloat(document.getElementById("radio").value);
@@ -207,7 +207,7 @@
                     valorResultado.value = "Datos inválidos";
                 } else {
                     let volumen = (1/3) * Math.PI * Math.pow(radio, 2) * altura;
-                    valorResultado.value = volumen.toFixed(2);
+                    valorResultado.value = volumen.toFixed(2) + " cm³";
                 }
             } else if(opcionDesplegable == "Sphere") {
                 let radio = parseFloat(document.getElementById("radio").value);
@@ -215,7 +215,7 @@
                     valorResultado.value = "Datos inválidos";
                 } else {
                     let volumen = (4/3) * Math.PI * Math.pow(radio, 3);
-                    valorResultado.value = volumen.toFixed(2);
+                    valorResultado.value = volumen.toFixed(2) + " cm³";
                 }
             }
         }
