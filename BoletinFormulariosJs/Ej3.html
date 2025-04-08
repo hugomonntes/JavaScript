@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej3</title>
+</head>
+<body>
+    <h3>Rellena el siguiente formulario para calcular el coste total del envío</h3>
+    <br>
+    <label for="precio">Precio:</label>
+    <input type="text" id="precio" maxlength="5">
+    <br>
+    <label for="cantidad">Cantidad:</label>
+    <input type="text" id="cantidad" maxlength="5">
+    <br>
+    <label for="descuento">Descuento:</label>
+    <input type="text" id="descuento" maxlength="5">
+    <br>
+    <label for="iva">IVA:</label>
+    <input type="text" id="iva" maxlength="3">
+    <label>%</label>
+    <br>
+    <label for="metodo">Método de envío:</label>
+    <select id="metodo">
+        <option value="0">Recoger en tienda -> Coste 0</option>
+        <option value="5">Correos -> Coste 5</option>
+        <option value="8">Seur -> Coste 8</option>
+    </select>
+    <br>
+    <button id="calcular">Calcular Precio Total</button>
+    <p id="resultado"></p>
+
+    <script>
+        document.getElementById("calcular").addEventListener("click", function() {
+            let precio = parseFloat(document.getElementById("precio").value) || 0;
+            let cantidad = parseInt(document.getElementById("cantidad").value) || 0;
+            let descuento = parseFloat(document.getElementById("descuento").value) || 0;
+            let iva = parseFloat(document.getElementById("iva").value) || 0;
+            let envio = parseFloat(document.getElementById("metodo").value);
+            
+            let precioConIva = precio + (precio * iva / 100);
+            let precioTotal = ((precioConIva - descuento) * cantidad) + envio;
+            
+            document.getElementById("resultado").textContent = "El precio total del envío es: " + precioTotal.toFixed(2) + "€";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej1</title>
+    <script>
+        function actualizarTextarea() {
+            const selectElement = document.getElementById("seleccionar");
+            const selectedIndex = selectElement.selectedIndex;
+            const selectedText = selectElement.options[selectedIndex].text;
+            document.getElementById("comentar").innerHTML = selectedText;
+        }
+
+        function validarFormulario(event) {
+            const nombre = document.getElementById("nombre").value.trim();
+            const telefono = document.getElementById("telefono").value.trim();
+            const asunto = document.getElementById("seleccionar").value.trim();
+
+            if (nombre === "" || telefono === "" || asunto === "") {
+                alert("Todos los campos son obligatorios");
+                event.preventDefault();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form action="#" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre">
+        <br>
+        <label for="telefono">Teléfono:</label>
+        <input type="text" id="telefono" name="telefono">
+        <br>
+        <label for="asunto">Asunto:</label>
+        <select name="asunto" id="seleccionar" onchange="actualizarTextarea()">
+            <option value="">Seleccione una opción</option>
+            <option value="Solicitar">Solicitar información</option>
+            <option value="Queja">Poner una queja</option>
+            <option value="Otros">Otros</option>
+        </select>
+        <br>
+        <label for="comentarios">Escribe un mensaje:</label>
+        <br>
+        <textarea name="comentarios" id="comentar"></textarea>
+        <br>
+        <button type="submit" id="enviar" onclick="validarFormulario(event)">Enviar consulta</button>
+    </form>
+</body>
+
+</html>

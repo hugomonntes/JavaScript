@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej4</title>
+    <style>
+        .error { color: red; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <h2>Calculadora</h2>
+    <form id="calcForm">
+        <label>Operando 1: <input type="number" id="num1"> <span class="error" id="error1"></span></label>
+        <br>
+        <label>Operando 2: <input type="number" id="num2"> <span class="error" id="error2"></span></label>
+        <br>
+        <select id="operacion">
+            <option value="+">Suma</option>
+            <option value="-">Resta</option>
+            <option value="*">Multiplicación</option>
+            <option value="/">División</option>
+        </select>
+        <br><br>
+        <button type="button" onclick="calcular()">Calcular</button>
+    </form>
+    <h3 id="resultado"></h3>
+
+    <script>
+        function calcular() {
+            let num1 = document.getElementById("num1").value;
+            let num2 = document.getElementById("num2").value;
+            let operacion = document.getElementById("operacion").value;
+            let error1 = document.getElementById("error1");
+            let error2 = document.getElementById("error2");
+            let resultado = document.getElementById("resultado");
+            
+            error1.textContent = "";
+            error2.textContent = "";
+            resultado.textContent = "";
+            
+            let valido = true;
+            
+            if (num1 === "") {
+                error1.textContent = "Este campo es obligatorio";
+                valido = false;
+            }
+            if (num2 === "") {
+                error2.textContent = "Este campo es obligatorio";
+                valido = false;
+            }
+            
+            if (!valido) {
+                window.alert("No has introducido todos los datos");
+            }
+            
+            num1 = parseFloat(num1);
+            num2 = parseFloat(num2);
+            
+            if (operacion === "/" && num2 === 0) {
+                alert("No es posible realizar una división por cero");
+                return;
+            }
+            
+            let res;
+            switch (operacion) {
+                case "+": res = num1 + num2; break;
+                case "-": res = num1 - num2; break;
+                case "*": res = num1 * num2; break;
+                case "/": res = num1 / num2; break;
+            }
+            
+            resultado.textContent = `El resultado de la operación ${num1} ${operacion} ${num2} es: ${res}`;
+        }
+    </script>
+</body>
+</html>
