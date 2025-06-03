@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario con Validación</title>
+    <style>
+      body {
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            height: 100vh;
+            width: 100vw;
+            flex-direction: column;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header {
+            background-color: #606669;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            border-bottom: 2px solid #0099cc;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            width: 80vw;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        .form-section {
+            width: 48%;
+        }
+
+        .form-row {
+            margin-bottom: 10px;
+        }
+
+        .form-row label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input:valid{
+          color: red;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border 0.3s;
+        }
+
+        input:focus {
+            border-color: #000000;
+            outline: none;
+            box-shadow: 0 0 5px rgba(13, 14, 14, 0.5);
+        }
+
+        .image-section {
+            width: 48%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        #image-container {
+            width: 250px;
+            height: 250px;
+            border: 2px dashed #aaa;
+            background-color: #f2f2f2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        #preview {
+            max-width: 100%;
+            max-height: 100%;
+            display: none;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .buttons input {
+            background-color: #52575a;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-right: 10px;
+            transition: background 0.3s;
+        }
+
+        .buttons input:hover {
+            background-color: #18191a;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            font-size: 0.9rem;
+            background-color: #f1f1f1;
+            margin-top: 20px;
+        }
+
+        a {
+            color: #005a87;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .form-section,
+            .image-section {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+        span{
+            margin-bottom: 10px;
+            color: red;
+        }
+    </style>
+  </head>
+
+  <body>
+    <header>Formulario</header>
+
+    <div class="container">
+      <div class="form-section">
+        <form action="#" method="post" enctype="multipart/form-data">
+          <div class="form-row">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre" minlength="4" />
+          </div>
+          <span id="errornombre"></span><br />
+
+          <div class="form-row">
+            <label for="apellidos">Apellidos</label>
+            <input type="text" name="apellidos" id="apellidos" minlength="8" />
+          </div>
+          <span id="errorapellidos"></span><br />
+
+          <div class="form-row">
+            <label for="edad">Edad</label>
+            <input type="number" name="edad" id="edad" />
+          </div>
+          <span id="erroredad"></span><br />
+
+          <div class="form-row">
+            <label for="correo">Email</label>
+            <input type="email" name="correo" id="correo" />
+          </div>
+          <span id="errorcorreo"></span><br />
+
+          <div class="form-row">
+            <label for="dni">DNI</label>
+            <input type="text" name="dni" id="dni" pattern="[0-9]{8}[A-Z]{1}" />
+          </div>
+          <span id="errordni"></span><br />
+
+          <div class="form-row">
+            <label for="foto">Foto</label>
+            <input
+              type="file"
+              name="foto"
+              id="foto"
+              accept="image/*"
+              onchange="mostrarPreview(event)"
+            />
+          </div>
+          <span id="errorfoto"></span><br />
+
+          <div class="buttons">
+            <input type="button" value="Validar" onclick="validar();" />
+            <input type="submit" value="Enviar" />
+          </div>
+        </form>
+      </div>
+
+      <div class="image-section">
+        <div id="image-container">
+          <img id="preview" src="#" alt="Vista previa de la imagen" />
+        </div>
+      </div>
+    </div>
+    <script>
+      function validarCorreo(correo) {
+        var expresionRegular = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return expresionRegular.test(correo);
+      }
+      function validarDNI(dni) {
+        const letras = [
+          "T",
+          "R",
+          "W",
+          "A",
+          "G",
+          "M",
+          "Y",
+          "F",
+          "P",
+          "D",
+          "X",
+          "B",
+          "N",
+          "J",
+          "Z",
+          "S",
+          "Q",
+          "V",
+          "H",
+          "L",
+          "C",
+          "K",
+          "E",
+        ];
+        const dniRegex = /^(\d{8})([A-Z])$/;
+        const match = dni.toUpperCase().match(dniRegex);
+        if (!match) return false;
+        const numero = parseInt(match[1]);
+        const letra = match[2];
+        const letraCorrecta = letras[numero % 23];
+        return letra === letraCorrecta;
+      }
+
+      function mostrarPreview(event) {
+        const input = event.target;
+        const preview = document.getElementById("preview");
+        if (input.files && input.files[0]) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            preview.src = e.target.result;
+            preview.style.display = "block";
+          };
+          reader.readAsDataURL(input.files[0]);
+        } else {
+          preview.style.display = "none";
+        }
+      }
+
+      function validar() {
+        var nombre = document.getElementById("nombre");
+        var apellidos = document.getElementById("apellidos");
+        var edad = document.getElementById("edad");
+        var correo = document.getElementById("correo");
+        var dni = document.getElementById("dni");
+        var foto = document.getElementById("foto");
+
+        var errornombre = document.getElementById("errornombre");
+        var errorapellidos = document.getElementById("errorapellidos");
+        var erroredad = document.getElementById("erroredad");
+        var errorcorreo = document.getElementById("errorcorreo");
+        var errordni = document.getElementById("errordni");
+        var errorfoto = document.getElementById("errorfoto");
+
+        if (nombre.value == "") {
+          errornombre.innerHTML = "Este campo es obligatorio";
+          return false;
+        } else {
+          errornombre.innerHTML = "";
+        }
+
+        if (apellidos.value == "") {
+          errorapellidos.innerHTML = "Este campo es obligatorio";
+          return false;
+        } else {
+          errorapellidos.innerHTML = "";
+        }
+
+        if (edad.value == "") {
+          erroredad.innerHTML = "Este campo es obligatorio";
+          return false;
+        } else {
+          erroredad.innerHTML = "";
+        }
+
+        if (correo.value == "") {
+          errorcorreo.innerHTML = "Este campo es obligatorio";
+          return false;
+        } else if (!validarCorreo(correo.value)) {
+          alert("La sintaxis del correo no es correcta");
+          return false;
+        } else {
+          errorcorreo.innerHTML = "";
+        }
+
+        if (dni.value == "") {
+          errordni.innerHTML = "Este campo es obligatorio";
+          return false;
+        } else if (!validarDNI(dni.value)) {
+          errordni.innerHTML =
+            "DNI incorrecto: la letra no corresponde al número";
+          return false;
+        } else {
+          errordni.innerHTML = "";
+        }
+
+        if (!foto.files || foto.files.length === 0) {
+          errorfoto.innerHTML = "Debes subir una foto";
+          return false;
+        } else {
+          errorfoto.innerHTML = "";
+        }
+        alert("¡Validación exitosa!");
+        return true;
+      }
+    </script>
+  </body>
+</html>
